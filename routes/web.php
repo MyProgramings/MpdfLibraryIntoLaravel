@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/index', function () {
+    return view('index');
+});
+
+Route::get('printPdf', function () {
+    $pdf = PDF::loadView('index');
+    return $pdf->stream('users.pdf');
+});
